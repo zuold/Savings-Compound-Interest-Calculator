@@ -26,19 +26,19 @@
         <div class="panel-head"><h2>设置你的计划</h2><span class="live"><i></i>实时计算</span></div>
         <div class="field">
           <div class="label-row"><label for="principal">初始本金</label><span class="unit">元</span></div>
-          <div class="input-wrap"><span>￥</span><input id="principal" type="number" min="0" max="2000000" step="5000" value="200000"></div>
+          <div class="input-wrap"><button type="button" class="step-btn" id="principalDown">−</button><span>￥</span><input id="principal" type="number" min="0" max="2000000" step="5000" value="200000"><button type="button" class="step-btn" id="principalUp">＋</button></div>
           <input class="range" id="principalRange" type="range" min="0" max="2000000" step="5000" value="200000">
           <div class="range-labels"><span>￥0</span><span>￥200万</span></div>
         </div>
         <div class="field">
           <div class="label-row"><label for="monthly">每月定投</label><span class="unit">元 / 月</span></div>
-          <div class="input-wrap"><span>￥</span><input id="monthly" type="number" min="0" max="100000" step="1000" value="10000"></div>
+          <div class="input-wrap"><button type="button" class="step-btn" id="monthlyDown">−</button><span>￥</span><input id="monthly" type="number" min="0" max="100000" step="1000" value="10000"><button type="button" class="step-btn" id="monthlyUp">＋</button></div>
           <input class="range" id="monthlyRange" type="range" min="0" max="100000" step="1000" value="10000">
           <div class="range-labels"><span>￥0</span><span>￥10万</span></div>
         </div>
         <div class="field two-col">
-          <div><div class="label-row"><label for="rate">预期年利率</label><span class="unit">%</span></div><div class="input-wrap"><input id="rate" type="number" min="0" max="15" step="0.01" value="1.75"><span>%</span></div></div>
-          <div><div class="label-row"><label for="years">定投年限</label><span class="unit">年</span></div><div class="input-wrap"><input id="years" type="number" min="1" max="30" step="1" value="5"><span>年</span></div></div>
+          <div><div class="label-row"><label for="rate">预期年利率</label><span class="unit">%</span></div><div class="input-wrap rate-wrap"><button type="button" class="step-btn" id="rateDown">−</button><input id="rate" type="text" inputmode="decimal" pattern="[0-9]*[.]?[0-9]{0,2}" value="1.75" aria-label="预期年利率"><button type="button" class="step-btn" id="rateUp">＋</button><span>%</span></div></div>
+          <div><div class="label-row"><label for="years">定投年限</label><span class="unit">年</span></div><div class="input-wrap"><button type="button" class="step-btn" id="yearsDown">−</button><input id="years" type="number" min="1" max="30" step="1" value="5"><button type="button" class="step-btn" id="yearsUp">＋</button><span>年</span></div></div>
         </div>
         <div class="tip"><span>✦</span><p>复利按月计算，每月定投将在当月月底计入。</p></div>
       </aside>
@@ -51,7 +51,7 @@
         <div class="chart-foot"><span>数据按月复利估算，实际收益以产品规则为准</span><span id="periods">60 个月</span></div>
       </section>
     </section>
-    <footer>© 2024 Compound Planner <span>·</span> 仅供测算参考</footer>
+    <footer>© 2026 By Dong <span>·</span> 仅供测算参考</footer>
   </main>
   <script src="script.js"></script>
 </body>
