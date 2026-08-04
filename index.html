@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>储蓄与复利计算器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">↗</span><span>储蓄与复利计算器</span></div>
+      <div class="tagline">让每一笔储蓄，都有清晰的未来</div>
+    </header>
+
+    <section class="hero">
+      <div><p class="eyebrow">PERSONAL FINANCE PLANNER</p><h1>把时间变成<br><em>财富的复利。</em></h1><p class="hero-copy">输入你的储蓄计划，看看本金与利息如何一起成长。</p></div>
+      <div class="hero-orb"><span>01</span><small>compound<br>growth</small></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="panel controls">
+        <div class="panel-head"><h2>设置你的计划</h2><span class="live"><i></i>实时计算</span></div>
+        <div class="field">
+          <div class="label-row"><label for="principal">初始本金</label><span class="unit">元</span></div>
+          <div class="input-wrap"><span>￥</span><input id="principal" type="number" min="0" max="2000000" step="5000" value="200000"></div>
+          <input class="range" id="principalRange" type="range" min="0" max="2000000" step="5000" value="200000">
+          <div class="range-labels"><span>￥0</span><span>￥200万</span></div>
+        </div>
+        <div class="field">
+          <div class="label-row"><label for="monthly">每月定投</label><span class="unit">元 / 月</span></div>
+          <div class="input-wrap"><span>￥</span><input id="monthly" type="number" min="0" max="100000" step="1000" value="10000"></div>
+          <input class="range" id="monthlyRange" type="range" min="0" max="100000" step="1000" value="10000">
+          <div class="range-labels"><span>￥0</span><span>￥10万</span></div>
+        </div>
+        <div class="field two-col">
+          <div><div class="label-row"><label for="rate">预期年利率</label><span class="unit">%</span></div><div class="input-wrap"><input id="rate" type="number" min="0" max="15" step="0.01" value="1.75"><span>%</span></div></div>
+          <div><div class="label-row"><label for="years">定投年限</label><span class="unit">年</span></div><div class="input-wrap"><input id="years" type="number" min="1" max="30" step="1" value="5"><span>年</span></div></div>
+        </div>
+        <div class="tip"><span>✦</span><p>复利按月计算，每月定投将在当月月底计入。</p></div>
+      </aside>
+
+      <section class="panel results">
+        <div class="result-top"><div><p class="eyebrow">预计资产总额</p><div class="total" id="total">￥735,698.51</div><p class="muted">在 <strong id="yearLabel">5 年</strong> 后</p></div><div class="growth-badge" id="growthBadge">+5.10%</div></div>
+        <div class="metrics"><div class="metric"><span>累计投入本金</span><strong id="contributed">￥700,000</strong></div><div class="metric"><span>累计利息收益</span><strong class="green" id="interest">￥35,698.51</strong></div><div class="metric"><span>收益率</span><strong class="green" id="returnRate">5.10%</strong></div></div>
+        <div class="chart-head"><div><h3>资产增长趋势</h3><p>本金与复利收益的累计变化</p></div><div class="legend"><span><i class="dot principal-dot"></i>累计本金</span><span><i class="dot interest-dot"></i>复利利息</span></div></div>
+        <div class="chart-wrap"><svg id="chart" viewBox="0 0 760 300" role="img" aria-label="资产增长趋势图"></svg></div>
+        <div class="chart-foot"><span>数据按月复利估算，实际收益以产品规则为准</span><span id="periods">60 个月</span></div>
+      </section>
+    </section>
+    <footer>© 2024 Compound Planner <span>·</span> 仅供测算参考</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
