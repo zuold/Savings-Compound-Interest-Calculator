@@ -57,8 +57,8 @@ function stepRate(amount) { const current = parseFloat(els.rate.value) || 0; els
 document.getElementById('rateDown').addEventListener('click', () => stepRate(-0.05));
 document.getElementById('rateUp').addEventListener('click', () => stepRate(0.05));
 function stepField(id, amount, min, max) { const value = Math.min(max, Math.max(min, (+els[id].value || 0) + amount)); els[id].value = value; const range = document.getElementById(id + 'Range'); if (range) range.value = value; calc(); }
-document.getElementById('principalDown').addEventListener('click', () => stepField('principal', -5000, 0, 2000000));
-document.getElementById('principalUp').addEventListener('click', () => stepField('principal', 5000, 0, 2000000));
+document.getElementById('principalDown').addEventListener('click', () => stepField('principal', -10000, 0, 2000000));
+document.getElementById('principalUp').addEventListener('click', () => stepField('principal', 10000, 0, 2000000));
 document.getElementById('monthlyDown').addEventListener('click', () => stepField('monthly', -1000, 0, 100000));
 document.getElementById('monthlyUp').addEventListener('click', () => stepField('monthly', 1000, 0, 100000));
 document.getElementById('yearsDown').addEventListener('click', () => stepField('years', -1, 1, 30));
