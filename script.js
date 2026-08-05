@@ -38,7 +38,14 @@ function draw(rows) {
   hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', event => show(event.touches[0]), { passive: true }); hit.addEventListener('touchmove', event => show(event.touches[0]), { passive: true }); hit.addEventListener('mouseleave', () => hover.setAttribute('opacity', '0'));
 }
 
-ids.filter(id => id !== 'rate').forEach(id => els[id].addEventListener('input', () => { const range = document.getElementById(id + 'Range'); if (range) range.value = els[id].value; calc(); }));
+['principal', 'monthly', 'years'].forEach(id => {
+  els[id].addEventListener('input', () => {
+    if (els[id].value === '') return;
+    const range = document.getElementById(id + 'Range');
+    if (range) range.value = els[id].value;
+    calc();
+  });
+});
 function sanitizeRate(value) {
   const [integer = '', ...decimalParts] = value.replace(/[^\d.]/g, '').split('.');
   return decimalParts.length ? `${integer}.${decimalParts.join('').slice(0, 2)}` : integer;
